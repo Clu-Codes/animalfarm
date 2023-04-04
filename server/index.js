@@ -19,9 +19,9 @@ const animals = [...Array(250).keys()].map((id) => {
 
 app.get("", (req, res) => {
   // Filter results by query
-  const q = req.query.q?.toLowerCase() || "";
+  const q = req.query.q || "";
   const results = animals.filter((animal) =>
-    animal.type.toLowerCase().includes(q)
+    animal.type.toLowerCase().includes(q.toLowerCase())
   );
 
   res.send(results);
